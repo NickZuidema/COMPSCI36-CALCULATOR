@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>CALCULATOR</title>
+
+    <style>
+      table{
+        padding: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid rgba(255, 255, 255, 0.258);
+        border-radius: 7px;
+      }
+
+      input[type="button"]{
+        padding: 25px 40px;
+        background-color: #3c3c3c;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        border: 1px solid #3c3c3c;
+        border-radius: 7px;
+        width: 100px;
+      }
+
+      input[type="button"]:hover{
+        background-color: #ffffff14;
+      }
+
+      input[type="button"]:disabled{
+        padding: 25px 40px;
+        background-color: #1a1a1a;
+        color: gray;
+        font-size: 20px;
+        font-weight: bold;
+        border: 1px solid #3c3c3c;
+        border-radius: 7px;
+        width: 100px;
+      }
+
+      input[type="button"]:active{
+        background-color: #1a1a1a;
+        border: 1px solid #3c3c3c;
+      }      
+
+      input[type="text"]{
+        padding: 10px 0px;
+        font-size: 40px;
+        border: 2px solid white;
+        font-weight: bold;
+        border-radius: 4px;
+        width: 512px;
+      }
+
+      input[type="text"]:disabled{
+        padding: 10px 0px;
+        font-size: 20px;
+        border: 2px solid white;
+        font-weight: bold;
+        border-radius: 4px;
+        width: 512px;
+        height: 48px;
+      }
+    </style>
+  </head>
+
+
+  <body style="background-color:#1a1a1a">
+      <table id="calc">
+        <tr>
+          <td colspan="5">
+            <input type="text" id="display" onkeypress="return checkInput(event)">
+          </td>
+        </tr>
+
+        <tr>
+          <td><input type="button" value="7" id="7" onclick="conc('7')"></td>
+          <td><input type="button" value="8" id="8" onclick="conc('8')"></td>
+          <td><input type="button" value="9" id="9" onclick="conc('9')"></td>
+          <td><input type="button" value="<-" id="del" onclick="del()"></td>
+          <td><input type="button" value="C" id="C" onclick="clr()"></td>
+        </tr>
+        <tr>
+          <td><input type="button" value="4" id="4" onclick="conc('4')"></td>
+          <td><input type="button" value="5" id="5" onclick="conc('5')"></td>
+          <td><input type="button" value="6" id="6" onclick="conc('6')"></td>
+          <td><input type="button" value="*" id="multiply" onclick="conc('*')"></td>
+          <td><input type="button" value="/" id="divide" onclick="conc('/')"></td>
+        </tr>
+        <tr>
+          <td><input type="button" value="1" id="1" onclick="conc('1')"></td>
+          <td><input type="button" value="2" id="2" onclick="conc('2')"></td>
+          <td><input type="button" value="3" id="3" onclick="conc('3')"></td>
+          <td><input type="button" value="+" id="add" onclick="conc('+')"></td>
+          <td><input type="button" value="-" id="subtract" onclick="conc('-')"></td>
+        </tr>
+        <tr>
+          <td><input type="button" value="0" id="0" onclick="conc('0')"></td>
+          <td><input type="button" value="." id="dot" onclick="conc('.')"></td>
+          <td><input type="button" value="(" id="parL" onclick="conc('(')"></td>
+          <td><input type="button" value=")"  id="parR" onclick="conc(')')"></td>
+          <td><input type="button" value="="  id="equal" onclick="equal()"></td>
+        </tr>
+
+      </table>
+
+      
+      <script src = "script1.js"></script>
+  </body>
+
+</html>
