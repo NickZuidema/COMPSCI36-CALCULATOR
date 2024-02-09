@@ -2,6 +2,7 @@ document.getElementById("calc").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         event.preventDefault();
         document.getElementById("equal").click()
+        console.log('noticed')
 });
 
 function conc(num){
