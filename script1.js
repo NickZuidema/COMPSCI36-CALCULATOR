@@ -1,5 +1,6 @@
-document.getElementById("equal").addEventListener("click", function() {
-    this.classList.toggle("pressed");
+document.getElementById("calc").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      document.getElementById("equal").click()
 });
 
 function conc(num){
