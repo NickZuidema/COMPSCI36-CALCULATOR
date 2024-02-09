@@ -1,9 +1,14 @@
 document.getElementById("calc").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
-        event.preventDefault();
-        document.getElementById("equal").click()
-        console.log('noticed')
-});
+      event.preventDefault(); 
+      document.getElementById("equal").click(); 
+    }
+
+    if(event.key === "Backspace"){
+        event.preventDefault(); 
+        document.getElementById("del").click(); 
+    }
+  });
 
 function conc(num){
     //Appends the newly pressed value of the pressed button to the display
@@ -26,7 +31,8 @@ function clr(){
 }
 
 function equal(){
-    var result;
+    var equation, result;
+    equation = (document.getElementById("display").value);
 
     try{
         //Attempts to solve the equation on the display as an expression through the eval() method
@@ -37,6 +43,7 @@ function equal(){
         if(isNaN(result)){
             disableAll(true);//If result is not a number, display and all buttons are disabled
         }
+        //passToPHP(equation, result);//Sends equation and result to the passToPHP function, regardless is it is a number ot not
     }
     catch(err){
         //If an error occurs during the solving process instead
@@ -44,8 +51,24 @@ function equal(){
         
         //Displays the error
         document.getElementById("display").value = err;
+        //passToPHP(equation, result);//Sends equation and error to the passToPHP function
     } 
 }
+
+/*function passToPHP(equation, result){
+    //Sends the given equation and result to the PHP script
+    $.ajax({
+        type: 'POST',
+        url: 'conn.php',
+        data: { 
+            equation: equation,
+            result: result 
+        },
+        success: function(response) {
+            alert(response);
+        }
+    });
+}*/
 
 function disableAll(dec){
     //Disables the display and all buttons, except 'C'
